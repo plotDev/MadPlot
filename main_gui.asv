@@ -239,13 +239,11 @@ hGuiStore = guidata(gcf)
 
 
 
-if (gco == hGuiStore.hMesh || gco == hGuiStore.hAx) && strcmp(get(gcf,'SelectionType'),'normal')
+if gco == hGuiStore.hMesh && strcmp(get(gcf,'SelectionType'),'normal')
     mesh(hGuiStore.hAx, hGuiStore.matPreview); view(2)
 else
-    mesh(hGuiStore.hAx, hGuiStore.mat);
+    
 end
-
-guidata(gcf, hGuiStore);
 
 
 % --- Executes on key release with focus on figure_main and none of its controls.
@@ -256,4 +254,4 @@ function figure_main_KeyReleaseFcn(hObject, eventdata, handles)
 %	Character: character interpretation of the key(s) that was released
 %	Modifier: name(s) of the modifier key(s) (i.e., control, shift) released
 % handles    structure with handles and user data (see GUIDATA)
-
+mesh(hGuiStore.hAx, hGuiStore.mat);
