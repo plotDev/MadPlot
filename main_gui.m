@@ -22,7 +22,7 @@ function varargout = main_gui(varargin)
 
 % Edit the above text to modify the response to help main_gui
 
-% Last Modified by GUIDE v2.5 14-May-2013 16:40:32
+% Last Modified by GUIDE v2.5 14-May-2013 17:27:28
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -143,7 +143,7 @@ hGuiStore = guidata(gcf);
 hGuiStore.mat = vec2mat(valArray.data, col_size);
 hGuiStore.mat = hGuiStore.mat(:,5:end);
 hGuiStore.root = hGuiStore.mat;
-hGuiStore.matPreview = imresize(hGuiStore.mat, [200 200]);
+hGuiStore.matPreview = imresize(hGuiStore.mat, [250 250]);
 guidata(gcf, hGuiStore);
 displaydata(hGuiStore);
 addData(hGuiStore);
@@ -210,6 +210,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 hGuiStore = guidata(gcf)
 addData(hGuiStore);
+mesh(hGuiStore.hAx, hGuiStore.matPreview); view(2)
 
 % guidata(gcf, hGuiStore) 
 % supresses hGuiStore update inside called function
@@ -256,4 +257,3 @@ function figure_main_KeyReleaseFcn(hObject, eventdata, handles)
 %	Character: character interpretation of the key(s) that was released
 %	Modifier: name(s) of the modifier key(s) (i.e., control, shift) released
 % handles    structure with handles and user data (see GUIDATA)
-
